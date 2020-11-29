@@ -21,6 +21,8 @@ json字符串编码：utf-8
 
 项目wiki:  https://github.com/fox136/MvJson/wiki
 
+博客地址： https://blog.csdn.net/qq_23114283/article/details/110272182
+
 使用方法：
 
   将mv_json.h和mv_json.cpp复制到你的项目即可。
