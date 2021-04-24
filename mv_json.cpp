@@ -12,7 +12,7 @@ CMvJson CMvJson::OBJ_INVALID = CMvJson(); // 不加const是让它表面上可以
 CMvJson CMvJson::CreateEspecialMvJson(const std::string& strData, int nType)
 {
     CMvJson oMvJson;
-    if ((OBJ_TYPE_BOOL == nType && ("true" == strData or "false" == strData)) ||
+    if ((OBJ_TYPE_BOOL == nType && ("true" == strData || "false" == strData)) ||
         (OBJ_TYPE_NULL == nType && "null" == strData))
     {
         oMvJson.m_strData = strData;
@@ -31,6 +31,11 @@ CMvJson& CMvJson::operator[](const std::string& strMapKey)
     {
         return CMvJson::OBJ_INVALID; // 程序运行到这里没有意义。在这里返回一个唯一的空对象，这样程序员在使用之前可以不校验该对象的合法性。
     }
+}
+
+std::string CMvJson::operator()(void)
+{
+	return GetString();
 }
 
 CMvJson& CMvJson::operator[](size_t nVecIndex)
@@ -504,7 +509,7 @@ CMvJson& CMvJson::operator=(double dValue)
     int status = 0;
     char buf[1024] = { 0 };
     CMvJson oMvJson;
-    snprintf(buf, sizeof(buf), "%lf", dValue);
+    sprintf(buf, "%lf", dValue);
     for (int i = std::string(buf).size() - 1; i > 0; --i)
     {
         if (buf[i] == '0')

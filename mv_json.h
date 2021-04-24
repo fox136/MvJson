@@ -68,6 +68,7 @@ public:
 
     CMvJson& operator[](const std::string& strMapKey); // 操作符重载
     CMvJson& operator[](size_t nVecIndex); // 操作符重载
+	std::string operator()(void); // 操作符重载(获取字符串)
     CMvJson& operator=(const std::string& strValue); // 操作符重载
     CMvJson& operator=(double dValue); // 操作符重载
     CMvJson& operator=(const CMvJson& dValue); // 操作符重载
@@ -135,7 +136,7 @@ public:
     };
 };
 
-#if false // 调试log的开关, 默认是关闭的
+#if 0
 #define TRACK_LOG_RESET std::cout << "TRACK_LOG_RESET. FUNCTION:" << __FUNCTION__ << "LINE:" << __LINE__ << endl; CMvJson::strLog = "";
 
 // 这里用do while(0)包起来，避免局部变量污染
